@@ -1,0 +1,32 @@
+def trouver_pointB (lat, long, v, Cap, t):
+
+    lat = input("quelle est votre lattitude actuelle ?")
+    long = input("quelle est votre longitude actuelle ?")
+    v = input("quelle est votre vitesse moyenne ?")
+    Cap = float(input("quelle est votre cap ?"))
+    t = input("Vous naviguez depuis combien de temps ?")
+
+
+    from pyproj import Proj, transform
+
+    inProj = Proj(init='epsg:3857')
+    outProj = Proj(init='epsg:4326')
+    x1, y1 = long, lat
+    x2, y2 = transform(inProj, outProj, x1, y1)
+
+    Cap1 = math.radians(Cap)
+    xb = math.sin(Cap1)*v*t + x2
+    yb = math.cos(Cap1)*v*t + y2
+    round(xb, 1)
+    round(yb, 1)
+    if 0.0001>xb>e-20:
+        xb = 0
+    if 0.0001>yb>e-20:
+        yb = 0
+
+    outProj = Proj(init='epsg:4326')
+    x3, y3 = xb, yb
+    longf, latf = transform(inProj, outProj, x3, y3)
+    print "longitude du point B =", longf
+    print "lattitude du point B =", latf
+    return longf, latf
