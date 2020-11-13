@@ -5,7 +5,7 @@ Created on Thu Nov 12 20:09:05 2020
 
 @author: armandbidault
 """
-a = float(input("hauteur d'eau h-6 :"))
+a = float(input("hauteur d'eau h-6 :"))   # on rentre les valeurs connues de la hauteur d'eau pour en déterminer leur interpolation 
 b = float(input("hauteur d'eau h-5 :"))
 c = float(input("hauteur d'eau h-4 :"))
 d = float(input("hauteur d'eau h-3 :"))
@@ -23,14 +23,14 @@ from scipy import interpolate
 import numpy as np
 x = np.arange(0, 13)
 y = np.array([a,b,c,d,e,f,g,h,i,j,k,l,m])
-print(x)
+print(x)                                      # vérification de la taille des listes
 print(y)
-f = interpolate.interp1d(x, y, kind='cubic')
+f = interpolate.interp1d(x, y, kind='cubic')  # cubic => interpolation par polynômes linéaire => fonction dérivable sur ]0;12[
 
 xnew = np.arange(0, 12, 0.1)
-ynew = f(xnew)   # use interpolation function returned by `interp1d`
+ynew = f(xnew)   # utilisation de l'interpolation fonction returned by `interp1d`
 plt.plot(x, y, 'o', xnew, ynew, '-')
 plt.show()
 
-V = float(input("quel temps exacte de la marée (en heure)voulez vous? "))
+V = float(input("quel temps exacte de la marée (en heure)voulez vous? "))  # on choisit ici la valeur a sortir de la fonction d'interpolation 
 print(f(V))
