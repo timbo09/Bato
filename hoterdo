@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Nov 12 20:09:05 2020
+
+@author: armandbidault
+"""
+a = float(input("hauteur d'eau h-6 :"))
+b = float(input("hauteur d'eau h-5 :"))
+c = float(input("hauteur d'eau h-4 :"))
+d = float(input("hauteur d'eau h-3 :"))
+e = float(input("hauteur d'eau h-2 :"))
+f = float(input("hauteur d'eau h-1 :"))
+g = float(input("hauteur d'eau h 0 :"))
+h = f
+i = e
+j = d
+k = c
+l = b
+m = a
+import matplotlib.pyplot as plt
+from scipy import interpolate
+import numpy as np
+x = np.arange(0, 13)
+y = np.array([a,b,c,d,e,f,g,h,i,j,k,l,m])
+print(x)
+print(y)
+f = interpolate.interp1d(x, y, kind='cubic')
+
+xnew = np.arange(0, 12, 0.1)
+ynew = f(xnew)   # use interpolation function returned by `interp1d`
+plt.plot(x, y, 'o', xnew, ynew, '-')
+plt.show()
+
+V = float(input("quel temps exacte de la marée (en heure)voulez vous? "))
+print(f(V))
