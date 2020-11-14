@@ -2,16 +2,17 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Nov 12 20:09:05 2020
-
 @author: armandbidault
 """
-a = float(input("hauteur d'eau h-6 :"))   # on rentre les valeurs connues de la hauteur d'eau pour en déterminer leur interpolation 
+print('\033[0m')
+zero_hydrographique = float(input("veuillez rentrer le zéro hydrographique :"))
+a = float(input("hauteur d'eau basse mer :"))   # on rentre les valeurs connues de la hauteur d'eau pour en déterminer leur interpolation 
 b = float(input("hauteur d'eau h-5 :"))
 c = float(input("hauteur d'eau h-4 :"))
 d = float(input("hauteur d'eau h-3 :"))
 e = float(input("hauteur d'eau h-2 :"))
 f = float(input("hauteur d'eau h-1 :"))
-g = float(input("hauteur d'eau h 0 :"))
+g = float(input("hauteur d'eau pleine mer :"))
 h = f
 i = e
 j = d
@@ -33,4 +34,11 @@ plt.plot(x, y, 'o', xnew, ynew, '-')
 plt.show()
 
 V = float(input("quel temps exacte de la marée (en heure)voulez vous? "))  # on choisit ici la valeur a sortir de la fonction d'interpolation 
-print(f(V))
+print("voici la hauteur d'eau dû a la marée actuelle", f(V))
+
+H_f = zero_hydrographique + f(V)
+
+print("*\n"*5)
+print ('\033[47m' + '\033[31m' + "la hauteur d'eau sera de", H_f,"metres à", V,"heure de marée")
+print('\033[0m')
+print("*\n"*5)
