@@ -1,0 +1,22 @@
+Rf = input("Quelle est votre route de fond ?")
+vent = input("Quelle est la valeur de la fore du vent ?")
+cour = input("Quelle est la valeur de la fore du courant ?")
+Dev_mag = input("Quelle est la deviation magnetique de votre bousolle ?")
+Dev_magN = input("De combien est l'ecart avec le norde magnetique a votre position ?")
+
+# Calcul du Cap vrai
+# On soustrait les deux deviations --> on obtient le Cap Compas
+def trouver_Cc(Rf, vent, cour,Dev_mag,Dev_magN):
+    if cour !=0:
+        Rs = Rf - cour
+    else:
+        Rs = Rf
+
+    if vent !=0:
+        Cvrai = Rs - vent
+    else:
+        Cvrai = Rs
+
+    Cc = Cvrai - Dev_magN - Dev_mag
+
+    return Cc
