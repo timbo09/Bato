@@ -1,4 +1,25 @@
-def trouver_pointB (lat, long, v, Cap, t):
+
+#// ---------------- DEBUT EN TETE -------------------------------------//
+// NOM :Trouver_point B           PRINCIPAL_GUI_BATEAUX               //
+// ALGO - REFERENCES :                                                  //
+//                                                                      //
+// AUTEURS : Q.delaforesdivonne                                         //
+// VERSION :    1.0         P.SCHOTT              novembre 2020         // 
+//                  Création en Scilab d'après le programme de mélanges //
+// HISTORIQUE : Aucun                                                   //
+//                                                                      //
+// ENTREES : Position, Vitesse, Cap                                           //
+//                                                                      //
+// SORTIES : Hauteur de l'eau exacte                                    //
+//                                                                      //
+// MODIFIEES :                                                          //
+//                                                                      //
+// LOCALES :                                                            //
+//                                                                      //
+// FONCTIONS APPELEES :                                                 //
+//                                                                      //
+// ---------------- FIN EN TETE ----------------------------------------//
+'''def trouver_pointB (lat, long, v, Cap, t):
 
     lat = input("quelle est votre lattitude actuelle ?")
     long = input("quelle est votre longitude actuelle ?")
