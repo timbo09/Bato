@@ -1,0 +1,25 @@
+Cc = input("Quelle est la position indiquee par votre boussole ?")
+Dev_mag = input("Quelle est la deviation magnetique de votre bousolle ?")
+Dev_magN = input("De combien est l'ecart avec le norde magnetique a votre position ?")
+vent = input("Quelle est la valeur de la force du vent ?")
+cour = input("Quelle est la valeur de la force de courant ?")
+
+# Calcul du cap vrai
+# On ajoute les deux deviations --> On obtient la Route de Surface / fond (en fonction de la meteo)
+def trouver_rf(Cc, Dev_mag, Dev_magN, vent, cour):
+    Cvrai = Cc + Dev_magN + Dev_mag
+
+    if vent != 0:
+        Rs = Cvrai + vent
+    else:
+        Rs = Cvrai
+
+
+
+    if cour != 0:
+        Rf = Rs + cour
+    else:
+        Rf = Rs
+
+    return Rf
+
