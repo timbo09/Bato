@@ -4,6 +4,29 @@
 Created on Thu Nov 12 20:09:05 2020
 @author: armandbidault
 """
+'''
+#// ---------------- DEBUT EN TETE -------------------------------------//
+// NOM : Courants marins            PRINCIPAL_GUI_BATEAUX               //
+// ALGO - REFERENCES :                                                  //
+//                                                                      //
+// AUTEURS : A.Bidault                                                  //
+// VERSION :    1.0         P.SCHOTT              novembre 2020         // 
+//                  Création en Scilab d'après le programme de mélanges //
+// HISTORIQUE : Aucun                                                   //
+//                                                                      //
+// ENTREES :  hauteur dû a la marré et zero hydrographique.             //
+//                                                                      //
+// SORTIES : Hauteur de l'eau exacte                                    //
+//                                                                      //
+// MODIFIEES :                                                          //
+//                                                                      //
+// LOCALES :                                                            //
+//                                                                      //
+// FONCTIONS APPELEES :                                                 //
+//                                                                      //
+// ---------------- FIN EN TETE ----------------------------------------//
+'''
+
 print('\033[0m')
 zero_hydrographique = float(input("veuillez rentrer le zéro hydrographique :"))
 a = float(input("hauteur d'eau basse mer :"))   # on rentre les valeurs connues de la hauteur d'eau pour en déterminer leur interpolation 
