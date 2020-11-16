@@ -4,6 +4,8 @@ cour = input("Quelle est la valeur de la fore du courant ?")
 Dev_mag = input("Quelle est la deviation magnetique de votre bousolle ?")
 Dev_magN = input("De combien est l'ecart avec le norde magnetique a votre position ?")
 
+
+
 # Calcul du Cap vrai
 # On soustrait les deux deviations --> on obtient le Cap Compas
 def trouver_Cc(Rf, vent, cour,Dev_mag,Dev_magN):
