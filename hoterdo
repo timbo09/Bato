@@ -6,7 +6,7 @@ Created on Thu Nov 12 20:09:05 2020
 """
 '''
 #// ---------------- DEBUT EN TETE -------------------------------------//
-// NOM : Courants marins            PRINCIPAL_GUI_BATEAUX               //
+// NOM : hauteur de l'eau en fonction de la marré                       //
 // ALGO - REFERENCES :                                                  //
 //                                                                      //
 // AUTEURS : A.Bidault                                                  //
