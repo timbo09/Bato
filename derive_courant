@@ -1,3 +1,4 @@
+def calcul_RF (h_m, Co, )
 #force et direction du courant prise sur le calul de la marre en fonction de l'endroit ou nous nous situons.
 
 h_m = int(input("heure de la maree"))
@@ -147,7 +148,8 @@ vitesse2.append(v_12)
 d_12_ = int(input("direction du courant a 6(=6heures apres la pleine mer"))
 direction2.append(d_12)
 
-
+from Trouver_pointB import trouver_pointB
+from Conversion_lat_x import conversion1
 #calcul de la derive en fonction du temps de trajet et de la position du bateau
 t = int(input("temps de trajet"))
 t_0 = int(input("heure marree (O a 12 avec h=6=pleine mer)"))
@@ -163,10 +165,12 @@ if Co>70 :
 
     x_f = force*maths.cos(derive)
     y_f = force*maths.sin(derive)
-   #calcul des longueurs du triangle
-    L_d = ((x_f-x_ideal)**2+(y_f-y_ideal)**2)**1/2
-    L_i = (postion_initiale**2+position_ideal**2)**1/2
-    L_r = (postion_initiale**2+position_reelle**2)**1/2
+    x_f = xb + x_f
+    y_f = yb + y_f
+    #calcul des longueurs du triangle
+    L_d = ((x_f-xb)**2+(y_f-yb)**2)**1/2
+    L_i = ((xb-x2)**2+(yb-y2)**2)**1/2
+    L_r = ((x_f-x2)**2+(y_f-y2)**2)**1/2
     #angle de derive
     A = (-L_d**2+L_r**2+L_i**2) / (2 * L_i * L_r)
     A = math.radians(A)
@@ -186,14 +190,11 @@ else:
     x_f = force * maths.cos(derive)
     y_f = force * maths.sin(derive)
     #calcul des longueurs du triangle
-    L_d = ((x_f - x_ideal) ** 2 + (y_f - y_ideal) ** 2) ** 1 / 2
-    L_i = (postion_initiale ** 2 + position_ideal ** 2) ** 1 / 2
-    L_r = (postion_initiale ** 2 + position_reelle ** 2) ** 1 / 2
+    L_d = ((x_f - xb) ** 2 + (y_f - yb) ** 2) ** 1 / 2
+    L_i = ((xb - x2) ** 2 + (yb - y2) ** 2) ** 1 / 2
+    L_r = ((x_f - x2) ** 2 + (y_f - y2) ** 2) ** 1 / 2
     #angle de derive
     A = (-L_d**2+L_r**2+L_i**2) / (2 * L_i * L_r)
     A = math.radians(A)
     A = math.acos(A)
     A_derive = math.degrees(A)
-
-print(force)
-print(derive)
