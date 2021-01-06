@@ -32,7 +32,7 @@ def calcul_RF (h_m, Co, t, t_0, x_f, y_f, x2, y2):
         A = (-L_d ** 2 + L_r ** 2 + L_i ** 2) / (2 * L_i * L_r)
         A = math.radians(A)
         A = math.acos(A)
-        A_derive = math.degrees(A)
+        A_derive = math.degrees(A) * a
 
 
     else:
@@ -56,4 +56,4 @@ def calcul_RF (h_m, Co, t, t_0, x_f, y_f, x2, y2):
         A = math.acos(A)
         A_derive = math.degrees(A) * a 
 
-        return (A_derive)
+    return (A_derive)
