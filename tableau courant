@@ -1,3 +1,27 @@
+'''
+#// ---------------- DEBUT EN TETE -------------------------------------//
+// NOM : tableau des valeurs du courant.                                //
+// ALGO - REFERENCES :                                                  //
+//                                                                      //
+// AUTEURS : A.Bidault                                                  //
+// VERSION :    1.0         P.SCHOTT              décembre 2020         // 
+//                  Création en Scilab d'après le programme de mélanges //
+// HISTORIQUE : Aucun                                                   //
+//                                                                      //
+// ENTREES :  valeurs direction et vitesse du coiurant en fonction      //
+//           du temps                                                   //
+//                                                                      //
+// SORTIES :/                                                           //
+//                                                                      //
+// MODIFIEES :                                                          //
+//                                                                      //
+// LOCALES :                                                            //
+//                                                                      //
+// FONCTIONS APPELEES :                                                 //
+//                                                                      //
+// ---------------- FIN EN TETE ----------------------------------------//
+'''
+
 # EN VIVES EAUX
 direction = []
 vitesse = []
