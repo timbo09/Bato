@@ -1,200 +1,59 @@
-def calcul_RF (h_m, Co, )
-#force et direction du courant prise sur le calul de la marre en fonction de l'endroit ou nous nous situons.
+def calcul_RF (h_m, Co, t, t_0, x_f, y_f, x2, y2):
+    # rentrer les differentes valeurs de direction et de vitesse du courants en fonction de la position
+    # EN VIVES EAUX
+    direction = []
+    vitesse = []
+    a = int(input("si le courant vient de Babord rentrez 1 si il vient de Tribord rentrez -1"))
 
-h_m = int(input("heure de la maree"))
+    from Trouver_pointB import trouver_pointB
+    from Conversion_lat_x import conversion1
+    # calcul de la derive en fonction du temps de trajet et de la position du bateau
+    t = int(input("temps de trajet"))
+    t_0 = int(input("heure marree (O a 12 avec h=6=pleine mer)"))
+    import math
+    if Co > 70:
+        d = direction[t_0:t_0 + t:]
+        a = sum(d)
+        derive = (a / t)
 
-#il faut savoir si on a affaire a un gros coef ou pas      si co = a 1 cela veut dire que l'on est en vives eaux, inversement on est est en mortes eaux
-Co = int(input("coefficient de maree"))
+        v = vitesse[t_0:t_0 + t:]
+        b = sum(v)
+        force = (b / t)
 
-
-
-
-#rentrer les differentes valeurs de direction et de vitesse du courants en fonction de la position
-# EN VIVES EAUX
-direction = []
-vitesse = []
-
-d_0 = int(input("direction du courant a -6(=6heures avant la pleine mer"))
-direction.append(d_0)
-v_0 = int(input("vitesse du courant a -6(=6heures avant la pleine mer"))
-vitesse.append(v_0)
-
-v_1 = int(input("vitesse du courant a -5(=5heures avant la pleine mer"))
-vitesse.append(v_1)
-d_1 = int(input("direction du courant a -5(=5heures avant la pleine mer"))
-direction.append(d_1)
-
-v_2 = int(input("vitesse du courant a -4(=4heures avant la pleine mer"))
-vitesse.append(v_2)
-d_2 = int(input("direction du courant a -4(=4heures avant la pleine mer"))
-direction.append(d_2)
-
-v_3 = int(input("vitesse du courant a -3(=3heures avant la pleine mer"))
-vitesse.append(v_3)
-d_3 = int(input("direction du courant a -3(=3heures avant la pleine mer"))
-direction.append(d_3)
-
-v_4 = int(input("vitesse du courant a -2(=2heures avant la pleine mer"))
-vitesse.append(v_4)
-d_4 = int(input("direction du courant a -2(=2heures avant la pleine mer"))
-direction.append(d_4)
-
-v_5 = int(input("vitesse du courant a -1(=1heure avant la pleine mer"))
-vitesse.append(v_5)
-d_5 = int(input("direction du courant a -1(=1heure avant la pleine mer"))
-direction.append(d_5)
-
-v_6 = int(input("vitesse du courant a la pleine mer"))
-vitesse.append(v_6)
-d_6 = int(input("direction du courant a la pleine mer"))
-direction.append(d_6)
-
-v_7 = int(input("vitesse du courant a 1(=1heure apres la pleine mer"))
-vitesse.append(v_7)
-d_7 = int(input("direction du courant a 1(=1heure apres la pleine mer"))
-direction.append(d_7)
-
-v_8 = int(input("vitesse du courant a 2(=2heures apres la pleine mer"))
-vitesse.append(v_8)
-d_8 = int(input("direction du courant a 2(=2heures apres la pleine mer"))
-direction.append(d_8)
-
-v_9 = int(input("vitesse du courant a 3(=3heures apres la pleine mer"))
-vitesse.append(v_9)
-d_9 = int(input("direction du courant a 3(=3heures apres la pleine mer"))
-direction.append(d_9)
-
-v_10 = int(input("vitesse du courant a 4(=4heures apres la pleine mer"))
-vitesse.append(v_10)
-d_10 = int(input("direction du courant a 4(=4heures apres la pleine mer"))
-direction.append(d_10)
-
-v_11 = int(input("vitesse du courant a 5(=5heures apres la pleine mer"))
-vitesse.append(v_11)
-d_11 = int(input("direction du courant a 5(=5heures apres la pleine mer"))
-direction.append(d_11)
-
-v_12 = int(input("vitesse du courant a 6(=6heures apres la pleine mer"))
-vitesse.append(v_12)
-d_12 = int(input("direction du courant a 6(=6heures apres la pleine mer"))
-direction.append(d_12)
-
-# EN MORTES EAUX
-direction2 = []
-vitesse2 = []
-
-d_0_ = int(input("direction du courant a -6(=6heures avant la pleine mer"))
-direction2.append(d_0)
-v_0_ = int(input("vitesse du courant a -6(=6heures avant la pleine mer"))
-vitesse2.append(v_0)
-
-v_1_ = int(input("vitesse du courant a -5(=5heures avant la pleine mer"))
-vitesse2.append(v_1)
-d_1_ = int(input("direction du courant a -5(=5heures avant la pleine mer"))
-direction2.append(d_1)
-
-v_2_ = int(input("vitesse du courant a -4(=4heures avant la pleine mer"))
-vitesse2.append(v_2)
-d_2_ = int(input("direction du courant a -4(=4heures avant la pleine mer"))
-direction2.append(d_2)
-
-v_3_ = int(input("vitesse du courant a -3(=3heures avant la pleine mer"))
-vitesse2.append(v_3)
-d_3_ = int(input("direction du courant a -3(=3heures avant la pleine mer"))
-direction2.append(d_3)
-
-v_4_ = int(input("vitesse du courant a -2(=2heures avant la pleine mer"))
-vitesse2.append(v_4)
-d_4_ = int(input("direction du courant a -2(=2heures avant la pleine mer"))
-direction2.append(d_4)
-
-v_5_ = int(input("vitesse du courant a -1(=1heure avant la pleine mer"))
-vitesse2.append(v_5)
-d_5_ = int(input("direction du courant a -1(=1heure avant la pleine mer"))
-direction2.append(d_5)
-
-v_6_ = int(input("vitesse du courant a la pleine mer"))
-vitesse2.append(v_6)
-d_6_ = int(input("direction du courant a la pleine mer"))
-direction2.append(d_6)
-
-v_7_ = int(input("vitesse du courant a 1(=1heure apres la pleine mer"))
-vitesse2.append(v_7)
-d_7_ = int(input("direction du courant a 1(=1heure apres la pleine mer"))
-direction2.append(d_7)
-
-v_8_ = int(input("vitesse du courant a 2(=2heures apres la pleine mer"))
-vitesse2.append(v_8)
-d_8_ = int(input("direction du courant a 2(=2heures apres la pleine mer"))
-direction2.append(d_8)
-
-v_9_ = int(input("vitesse du courant a 3(=3heures apres la pleine mer"))
-vitesse2.append(v_9)
-d_9_ = int(input("direction du courant a 3(=3heures apres la pleine mer"))
-direction2.append(d_9)
-
-v_10_ = int(input("vitesse du courant a 4(=4heures apres la pleine mer"))
-vitesse2.append(v_10)
-d_10_ = int(input("direction du courant a 4(=4heures apres la pleine mer"))
-direction2.append(d_10)
-
-v_11_ = int(input("vitesse du courant a 5(=5heures apres la pleine mer"))
-vitesse2.append(v_11)
-d_11_ = int(input("direction du courant a 5(=5heures apres la pleine mer"))
-direction2.append(d_11)
-
-v_12_ = int(input("vitesse du courant a 6(=6heures apres la pleine mer"))
-vitesse2.append(v_12)
-d_12_ = int(input("direction du courant a 6(=6heures apres la pleine mer"))
-direction2.append(d_12)
-
-from Trouver_pointB import trouver_pointB
-from Conversion_lat_x import conversion1
-#calcul de la derive en fonction du temps de trajet et de la position du bateau
-t = int(input("temps de trajet"))
-t_0 = int(input("heure marree (O a 12 avec h=6=pleine mer)"))
-import math
-if Co>70 :
-    d = direction[t_0:t_0+t:]
-    a = sum(d)
-    derive = (a / t)
-
-    v = vitesse[t_0:t_0+t:]
-    b = sum(v)
-    force = (b / t)
-
-    x_f = force*maths.cos(derive)
-    y_f = force*maths.sin(derive)
-    x_f = xb + x_f
-    y_f = yb + y_f
-    #calcul des longueurs du triangle
-    L_d = ((x_f-xb)**2+(y_f-yb)**2)**1/2
-    L_i = ((xb-x2)**2+(yb-y2)**2)**1/2
-    L_r = ((x_f-x2)**2+(y_f-y2)**2)**1/2
-    #angle de derive
-    A = (-L_d**2+L_r**2+L_i**2) / (2 * L_i * L_r)
-    A = math.radians(A)
-    A = math.acos(A)
-    A_derive = math.degrees(A)
+        x_f = force * maths.cos(derive)
+        y_f = force * maths.sin(derive)
+        x_f = xb + x_f
+        y_f = yb + y_f
+        # calcul des longueurs du triangle
+        L_d = ((x_f - xb) ** 2 + (y_f - yb) ** 2) ** 1 / 2
+        L_i = ((xb - x2) ** 2 + (yb - y2) ** 2) ** 1 / 2
+        L_r = ((x_f - x2) ** 2 + (y_f - y2) ** 2) ** 1 / 2
+        # angle de derive
+        A = (-L_d ** 2 + L_r ** 2 + L_i ** 2) / (2 * L_i * L_r)
+        A = math.radians(A)
+        A = math.acos(A)
+        A_derive = math.degrees(A)
 
 
-else:
-    d = direction2[t_0:t_0 + t:]
-    a = sum(d)
-    derive = (a / t)
+    else:
+        d = direction2[t_0:t_0 + t:]
+        a = sum(d)
+        derive = (a / t)
 
-    v = vitesse2[t_0:t_0 + t:]
-    b = sum(v)
-    force = (b / t)
+        v = vitesse2[t_0:t_0 + t:]
+        b = sum(v)
+        force = (b / t)
 
-    x_f = force * maths.cos(derive)
-    y_f = force * maths.sin(derive)
-    #calcul des longueurs du triangle
-    L_d = ((x_f - xb) ** 2 + (y_f - yb) ** 2) ** 1 / 2
-    L_i = ((xb - x2) ** 2 + (yb - y2) ** 2) ** 1 / 2
-    L_r = ((x_f - x2) ** 2 + (y_f - y2) ** 2) ** 1 / 2
-    #angle de derive
-    A = (-L_d**2+L_r**2+L_i**2) / (2 * L_i * L_r)
-    A = math.radians(A)
-    A = math.acos(A)
-    A_derive = math.degrees(A)
+        x_f = force * maths.cos(derive)
+        y_f = force * maths.sin(derive)
+        # calcul des longueurs du triangle
+        L_d = ((x_f - xb) ** 2 + (y_f - yb) ** 2) ** 1 / 2
+        L_i = ((xb - x2) ** 2 + (yb - y2) ** 2) ** 1 / 2
+        L_r = ((x_f - x2) ** 2 + (y_f - y2) ** 2) ** 1 / 2
+        # angle de derive
+        A = (-L_d ** 2 + L_r ** 2 + L_i ** 2) / (2 * L_i * L_r)
+        A = math.radians(A)
+        A = math.acos(A)
+        A_derive = math.degrees(A) * a 
+
+        return (A_derive)
